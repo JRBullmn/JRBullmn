@@ -1,1 +1,22 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="shortcut icon" href="storage/download.png" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@200;400&family=Roboto:wght@100;400&display=swap"
+    rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+   
+   $('#header').load("COPYME.html");
+});
+</script>
+</head>
+<body>
+  <div id="header"></div>
+</body>
+</html>
