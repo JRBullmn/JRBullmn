@@ -8,14 +8,16 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: 1000;
   color: #FAF0E6;
+  font-size: 60px;
 }
-.home{
-  font-size: 30px;
+h1{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 750;
 }
 p, ul, a{
   font-family: 'Roboto', sans-serif;
   font-weight: 200;
-  color: #C0D4EE;
+  color: #B0E4FE;
   margin: 10px;
 }
 h2, h3, h4, h5 {
