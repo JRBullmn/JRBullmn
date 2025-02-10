@@ -34,7 +34,7 @@ h2, h3, h4, h5 {
 }
 .header {
   background-color: #DC143C;
-  height: 75px;
+  height: 125px;
   width: 100%
   display: flex;
 }
