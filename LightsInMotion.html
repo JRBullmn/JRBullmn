@@ -28,6 +28,39 @@ $(document).ready(function(){
   <p><a href="#p5">Phase 5. Test Uniforms</a></p>
   <p><a href="#p6">Final Results</a></p>
   <h2 id="p1">Research</h2>
+    <p>Base Code:
+    /*
+Lights n' Motion
+*/
+
+#include <iostream>
+#include <unistd.h>
+using namespace std;
+
+#include <FastLED.h>
+
+#define LED_PIN     6
+#define NUM_LEDS    60  
+
+// num_leds is the actual number of leds times 1.5. Not sure why, but this is how they are indexed.
+
+CRGB leds[NUM_LEDS];
+
+void setup()
+{
+  FastLED.addLeds<WS2812, LED_PIN, GRB>(leds, NUM_LEDS);
+}
+
+void loop()
+{
+  double bpm = 90;
+  double beatTime = (60/bpm) * 1000;
+ 
+// Main function commands
+  leds[0] = CRGB(255, 0, 0); // sets led at index [0] to the RGB value (255, 0, 0) which is red
+  FastLED.show(); // takes all LEDs that have been set and shows their new set values
+  delay(beatTime);
+    </p>
   <h2 id="p2">Gathering Resources</h2>
   <h2 id="p3">Programming</h2>
   <h2 id="p4">Costume Design</h2>
