@@ -29,3 +29,7 @@ void loop()
   leds[0] = CRGB(255, 0, 0); // sets led at index [0] to the RGB value (255, 0, 0) which is red
   FastLED.show(); // takes all LEDs that have been set and shows their new set values
   delay(beatTime);
+  leds[0] = CRGB(0, 0, 0);
+  FastLED.show();
+  delay(beatTime);
+}
