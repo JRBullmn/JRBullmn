@@ -15,16 +15,10 @@ h1{
   font-family: 'Roboto', sans-serif;
   font-weight: 750;
 }
-p{
+p, ul, a{
   font-family: 'Roboto', sans-serif;
   font-weight: 200;
   color: #A0B4CE;
-  margin: 10px;
-}
-ul, a{
-  font-family: 'Roboto', sans-serif;
-  font-weight: 200;
-  color: #FAF0E6;
   margin: 10px;
 }
 h2, h3, h4, h5 {
@@ -54,7 +48,9 @@ a:hover {
 li.dropdown {
   display: inline-block;
 }
-
+.dropdown {
+  color: #FAF0E6;
+}
 .dropdown-content {
   display: none;
   position: absolute;
