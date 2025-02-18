@@ -1,0 +1,42 @@
+/*
+Lights n' Motion
+*/
+
+#include <iostream>
+#include <unistd.h>
+using namespace std;
+
+#include <FastLED.h>
+
+#define LED_PIN     6
+#define NUM_LEDS    240  
+#define ITER    50
+
+// num_leds is the actual number of leds times 1.5. Not sure why, but this is how they are indexed.
+
+CRGB leds[NUM_LEDS];
+
+void setup()
+{
+  FastLED.addLeds<WS2812, LED_PIN, GRB>(leds, NUM_LEDS);
+}
+
+void loop()
+{
+  double bpm = 50;
+  double beatTime = (60/bpm) * 1000;
+ for(int i = 0; i < ITER; i++){
+    for(int j = 0; j < NUM_LEDS; j++) {
+      leds[j] = CRGB(ITER-i, ITER-i, ITER-i);
+    }
+    FastLED.show();
+    delay(beatTime/ITER);
+  }
+  for(int i = 0; i < ITER; i++){
+    for(int j = 0; j < NUM_LEDS; j++) {
+      leds[j] = CRGB(ITER-(ITER-i), ITER-(ITER-i), ITER-(ITER-i));
+    }
+    FastLED.show();
+    delay(beatTime/ITER);
+  }
+}
