@@ -1,0 +1,71 @@
+/*
+Lights n' Motion
+*/
+
+#include <iostream>
+#include <unistd.h>
+using namespace std;
+
+#include <FastLED.h>
+
+#define LED_PIN     6
+#define NUM_LEDS    60  
+#define ITER    50
+#define MAX    70
+
+// num_leds is the actual number of leds times 1.5. Not sure why, but this is how they are indexed.
+
+CRGB leds[NUM_LEDS];
+void setup()
+{
+  FastLED.addLeds<WS2812, LED_PIN, GRB>(leds, NUM_LEDS);
+}
+
+void meow(int bt, int r, int g, int b){
+  for (int i = 0; i < ITER; i++) {
+    leds[0] = CRGB(r*i, g*i, b*i);
+    for (int j = NUM_LEDS-1; j > 0; j--) {
+      leds[j] = leds[j-1];
+    }
+    FastLED.show();
+    delay(bt*4/NUM_LEDS);
+  }
+  for (int i = ITER; i > 0; i--) {
+    leds[0] = CRGB(r*i, g*i, b*i);
+    for (int j = NUM_LEDS-1; j > 0; j--) {
+      leds[j] = leds[j-1];
+    }
+    FastLED.show();
+    delay(bt*4/NUM_LEDS);
+  }
+}
+void miau(int bt, int r1, int g1, int b1, int r2, int g2, int b2) {
+  for (int i = 0; i < ITER; i++) {
+    for (int j = 0; j < NUM_LEDS-1; j+=2) {
+      leds[j] = CRGB(r1*i, g1*i, b1*i);
+      leds[j+1] = CRGB(0, 0, 0);
+      FastLED.show();
+      delay(bt/(ITER*4));
+    }
+  }
+  for (int i = 0; i < ITER; i++) {
+    for (int j = 1; j < NUM_LEDS; j+=2) {
+      leds[j] = CRGB(r2*i, g2*i, b2*i);
+      leds[j-1] = CRGB(0, 0, 0);
+      FastLED.show();
+      delay(bt/(ITER*4));
+    }
+  }
+}
+
+void loop()
+{
+  double bpm = 90;
+  double beatTime = (60/bpm) * 1000;
+  meow(beatTime, MAX/ITER, 0, MAX/ITER);
+  meow(beatTime/2, MAX/ITER, 0, 0);
+  meow(beatTime/2, 0, 0, MAX/ITER);
+  miau(beatTime/2, MAX/ITER, 0, 0, 0, 0, MAX/ITER);
+  miau(beatTime/2, MAX/ITER, 0, 0, 0, 0, MAX/ITER);
+  meow(beatTime, MAX/ITER, 0, MAX/ITER);
+}
