@@ -1,1 +1,26 @@
-
+delay(26000);
+for (int i = 0; i < NUM_LEDS; i++) {
+  leds[i] = CRGB(MAX, MAX/5, 0);
+}
+FastLED.show();
+delay(4000);
+for (int i = 0; i < NUM_LEDS; i++) {
+  leds[i] = CRGB(MAX, MAX/2, 0);
+}
+FastLED.show();
+delay(9000);
+for (int i = 0; i < NUM_LEDS; i++) {
+  leds[i] = CRGB(MAX, MAX/5, 0);
+}
+FastLED.show();
+delay(21000);
+for (int i = 0; i < NUM_LEDS; i++) {
+  leds[i] = CRGB(MAX/2, MAX/4, 0);
+}
+FastLED.show();
+delay(58000);
+for (int i = 0; i < NUM_LEDS; i++) {
+  leds[i] = CRGB(0, 0, 0);
+}
+FastLED.show();
+delay(20000);
